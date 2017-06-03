@@ -27,7 +27,6 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.shared.artifact.filter.collection.ArtifactsFilter;
 import org.apache.maven.shared.artifact.filter.collection.ScopeFilter;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -103,7 +102,6 @@ public class DependencyFilterMojoTests {
 		assertThat(artifacts).containsExactly(two, three);
 	}
 
-	@Ignore
 	@Test
 	public void filterExcludeKeepOrder() throws MojoExecutionException {
 		Exclude exclude = new Exclude();
@@ -150,7 +148,7 @@ public class DependencyFilterMojoTests {
 
 		public Set<Artifact> filterDependencies(Artifact... artifacts)
 				throws MojoExecutionException {
-			Set<Artifact> input = new LinkedHashSet<Artifact>(Arrays.asList(artifacts));
+			Set<Artifact> input = new LinkedHashSet<>(Arrays.asList(artifacts));
 			return filterDependencies(input, getFilters(this.additionalFilters));
 		}
 
