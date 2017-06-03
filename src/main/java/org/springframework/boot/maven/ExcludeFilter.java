@@ -40,12 +40,13 @@ public class ExcludeFilter extends DependencyFilter {
 
 	@Override
 	protected boolean filter(Artifact artifact) {
-		for (FilterableDependency dependency : getFilters()) {
+		/*for (FilterableDependency dependency : getFilters()) {
 			if (equals(artifact, dependency)) {
 				return true;
 			}
 		}
-		return false;
+		return false;*/
+		return true;
 	}
 
 }
